@@ -1,0 +1,81 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9; /* Fondo suave */
+    color: #333;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribuye el contenido */
+}
+
+header {
+    background-color: #333; /* Color primario */
+    color: white;
+    padding: 40px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin-top: 0;
+    font-size: 2.5em;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+.button-container {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 30px; /* Espacio entre los botones */
+    flex-grow: 1; /* Permite que el contenedor de botones crezca */
+    align-items: center; /* Centra los botones verticalmente */
+}
+
+/* Estilo base para los botones */
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none; /* Quita el subrayado del enlace */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo específico para Clase 1 */
+.button-clase1 {
+    background-color: #28a745; /* Verde */
+}
+
+.button-clase1:hover {
+    background-color: #218838;
+    transform: translateY(-2px); /* Efecto al pasar el ratón */
+}
+
+/* Estilo específico para Clase 2 */
+.button-clase2 {
+    background-color: #ffc107; /* Amarillo/Naranja */
+    color: #333; /* Texto oscuro para contraste */
+}
+
+.button-clase2:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+    font-size: 0.9em;
+}
