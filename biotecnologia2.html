@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biotecnología</title>
+    <!-- Carga de Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Chart.js para el gráfico -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos base y de tema para Sustentabilidad */
+        :root {
+            --color-primary: #059669; /* Emerald 600 */
+            --color-secondary: #047857; /* Emerald 700 */
+            --color-light: #d1fae5; /* Emerald 100 */
+            --color-text: #1f2937; /* Gray 800 */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0fdf4; /* Emerald 50 */
+        }
+        .header-bg {
+            background-color: var(--color-secondary);
+        }
+        .section-header {
+            border-left: 5px solid var(--color-primary);
+            padding-left: 1rem;
+        }
+        .card-glow {
+            box-shadow: 0 10px 15px -3px rgba(5, 150, 105, 0.1), 0 4px 6px -2px rgba(5, 150, 105, 0.05);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Encabezado Fijo -->
+    <header class="header-bg text-white p-4 sticky top-0 z-10 shadow-lg">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-3xl font-extrabold tracking-tight">
+                BIOTECNOLOGÍA, GEOPOLÍTICA Y SUSTENTABILIDAD
+            </h1>
+        </div>
+    </header>
+
+    <!-- Contenido Principal (Fases de la Sesión) -->
+    <main class="max-w-6xl mx-auto p-4 md:p-8 space-y-12">
+
+        <!-- FASE 1: INICIO - Revisión y Conexión -->
+        <section class="bg-white p-6 rounded-xl shadow-lg card-glow">
+            <h2 class="text-2xl font-bold section-header text-emerald-700 mb-6">
+                FASE 1: INICIO - Revisión y Conexión
+            </h2>
+
+            <!-- Actividad 1. Repaso Rápido -->
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold mb-3">1. Repaso Rápido: Biotecnología Verde</h3>
+                <p class="text-gray-600 mb-3">
+                    Antes de avanzar, recordemos el concepto clave de la biotecnología aplicada a la agricultura y al medio ambiente.
+                </p>
+                <button onclick="toggleConcept('verde')" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                    Mostrar/Ocultar Concepto
+                </button>
+                <div id="concepto-verde" class="mt-4 p-4 bg-emerald-100 border border-emerald-300 rounded-lg hidden">
+                    <p class="font-medium text-emerald-800">
+                        La <strong>Biotecnología Verde</strong> es aquella rama que aplica los principios de la biotecnología al <strong>sector agrícola</strong> (producción de alimentos, semillas resistentes) y al <strong>ambiental</strong> (biorremediación, biofertilizantes).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Actividad 2. Discusión de Tarea (Satélite Sucre) -->
+            <div>
+                <h3 class="text-xl font-semibold mb-3">2. Puente Temático: El Satélite Sucre</h3>
+                <p class="text-gray-600 mb-4">
+                    <span class="font-bold">Discusión:</span> ¿Cómo el <strong>Satélite Sucre</strong> (VNRE-1) proporciona datos vitales que se relacionan con el <strong>campo venezolano</strong> (ej. detección de uso del suelo, sequías, salud de cultivos)? Esta información digital es la base para las decisiones biotecnológicas y geopolíticas del país.
+                </p>
+                
+                <!-- Botones de Videos de Apoyo para Satélite Sucre -->
+                <div class="flex flex-col sm:flex-row gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200">
+                    <a href="https://youtube.com/shorts/VfTb-L3ZI7I?si=4dIlmm4dW6Q6aGjK" target="_blank" class="flex-1 text-center bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-3 rounded-lg transition duration-300 shadow-md text-sm">
+                        <span class="hidden sm:inline">Video 1:</span> Agricultura y Tecnología
+                    </a>
+                    <a href="https://youtube.com/shorts/tg06HWwp-gk?si=oRkP9Bgv9yjIeib-" target="_blank" class="flex-1 text-center bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-3 rounded-lg transition duration-300 shadow-md text-sm">
+                        <span class="hidden sm:inline">Video 2:</span> La Sustentabilidad
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=mS_nBZqVI2w" target="_blank" class="flex-1 text-center bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-3 rounded-lg transition duration-300 shadow-md text-sm">
+                        <span class="hidden sm:inline">Video 3:</span> Rol del Satélite
+                    </a>
+                </div>
+                <!-- Fin Botones de Videos de Apoyo -->
+
+                <span class="text-sm text-gray-500 mt-4 block">
+                    — Evaluación Formativa: Monitoreo del cumplimiento de la tarea.
+                </span>
+            </div>
+        </section>
+
+        <!-- FASE 2: DESARROLLO - Profundización -->
+        <section class="bg-white p-6 rounded-xl shadow-lg card-glow">
+            <h2 class="text-2xl font-bold section-header text-emerald-700 mb-6">
+                FASE 2: DESARROLLO - Profundización
+            </h2>
+
+            <!-- Tema 1: Geopolítica -->
+            <div class="mb-8 p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
+                <h3 class="text-xl font-bold text-yellow-800 mb-3 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe mr-2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    Biotecnología y Soberanía Nacional (Geopolítica)
+                </h3>
+                <p class="text-gray-700 mb-2">
+                    La biotecnología es una herramienta de <strong>geopolítica</strong> porque garantiza la <strong>Seguridad Alimentaria</strong> (control sobre nuestras semillas) y la <strong>Salud Pública</strong> (capacidad de producir vacunas y diagnósticos propios).
+                </p>
+                <div class="mt-3 p-3 bg-yellow-100 rounded-lg">
+                    <span class="font-semibold text-sm block">Ejemplo Venezolano:</span>
+                    <p class="text-sm text-yellow-900">
+                        El rol del <strong>IVIC</strong> (Instituto Venezolano de Investigaciones Científicas) es clave en la investigación de enfermedades tropicales y el desarrollo de técnicas como el <strong>cultivo de tejidos</strong> para recuperar cosechas endémicas afectadas por plagas.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Gráfico de Torta de Biotecnología Agrícola -->
+            <div class="mb-8 p-6 bg-green-50 rounded-xl border-2 border-green-200">
+                <h3 class="text-xl font-bold text-green-700 mb-4 text-center">
+                    Distribución de Aplicaciones en Biotecnología Agrícola (Verde)
+                </h3>
+                <!-- Se mantiene el tamaño fijo para estabilidad. Es un poco más cuadrado para el gráfico de torta. -->
+                <div class="mx-auto w-[450px] h-[450px] max-w-full">
+                    <canvas id="barChartBiotecnologia" class="w-full h-full"></canvas>
+                </div>
+                <p class="text-xs text-gray-500 mt-4 text-center">
+                    Fuente: Datos hipotéticos con fines didácticos.
+                </p>
+            </div>
+
+
+            <!-- Tema 2: Sustentabilidad -->
+            <div class="mb-8 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                <h3 class="text-xl font-bold text-blue-800 mb-3 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf mr-2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 21 2 21 2s-3 5.5-2 11.2A7 7 0 0 1 11 20"/></svg>
+                    Biotecnología y Sustentabilidad del Territorio
+                </h3>
+                <p class="text-gray-700 mb-4">
+                    En un país mega-diverso como Venezuela, la biotecnología ofrece soluciones que reducen el impacto ambiental de las industrias.
+                </p>
+                <ul class="space-y-4 text-gray-700">
+                    <li class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-2 bg-blue-100 rounded-lg">
+                        <div class="flex items-start mb-2 sm:mb-0">
+                            <span class="font-bold text-emerald-600 mr-2 flex-shrink-0">✓</span>
+                            <div>
+                                <span class="font-semibold">Biofertilizantes:</span> Usan organismos vivos para nutrir el suelo, <strong>reduciendo</strong> drásticamente la contaminación química de las aguas y el suelo.
+                            </div>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=DlmlXdH6zWY" target="_blank" class="w-full sm:w-auto text-center bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-1.5 px-3 rounded-lg transition duration-300 text-sm shadow-md flex-shrink-0">
+                            Video
+                        </a>
+                    </li>
+                    <li class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-2 bg-blue-100 rounded-lg">
+                        <div class="flex items-start mb-2 sm:mb-0">
+                            <span class="font-bold text-emerald-600 mr-2 flex-shrink-0">✓</span>
+                            <div>
+                                <span class="font-semibold">Biorremediación:</span> Emplea microorganismos para <strong>limpiar zonas contaminadas</strong>, por ejemplo, digiriendo residuos en derrames petroleros o industriales.
+                            </div>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=NCC6O7Q7aZc" target="_blank" class="w-full sm:w-auto text-center bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-1.5 px-3 rounded-lg transition duration-300 text-sm shadow-md flex-shrink-0">
+                            Video
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Debate Guiado -->
+            <div class="mb-6 p-6 bg-gray-100 rounded-xl border border-gray-300">
+                <h3 class="text-xl font-bold text-red-600 mb-4 text-center">3. Debate Guiado: Dilema Ético</h3>
+                <p class="text-lg font-semibold text-center mb-4">
+                    "¿Es ético modificar genéticamente un cultivo para que resista las sequías en Venezuela?"
+                </p>
+                <p class="text-sm text-gray-500 text-center mb-6">
+                    (Selecciona un punto para iniciar la discusión)
+                </p>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <button onclick="showArgument('pro')" class="p-4 rounded-lg bg-green-200 hover:bg-green-300 transition duration-300 font-bold text-green-800">
+                        Argumento PRO (A Favor)
+                    </button>
+                    <button onclick="showArgument('contra')" class="p-4 rounded-lg bg-red-200 hover:bg-red-300 transition duration-300 font-bold text-red-800">
+                        Argumento CONTRA (En Contra)
+                    </button>
+                </div>
+
+                <div id="debate-argumento" class="mt-4 p-4 bg-white rounded-lg border border-gray-400 min-h-[50px] text-gray-700 italic">
+                    <!-- El argumento se mostrará aquí -->
+                    <p class="text-center text-gray-500">Haz clic en PRO o CONTRA para ver un punto de partida para el debate.</p>
+                </div>
+                <span class="text-sm text-gray-500 mt-2 block text-center">
+                    — Evaluación Formativa: Capacidad de argumentación y manejo de dilemas.
+                </span>
+            </div>
+        </section>
+
+        <!-- FASE 3: CIERRE - Síntesis y Evaluación Final (15 min) -->
+        <section class="bg-emerald-700 text-white p-8 rounded-xl shadow-2xl card-glow">
+            <h2 class="text-2xl font-bold section-header border-white mb-6">
+                FASE 3: CIERRE - Actividad Sumativa (Ficha de Salida)
+            </h2>
+            <p class="mb-6">
+                Por favor, responde las siguientes preguntas basándote en lo discutido en la sesión para completar tu Ficha de Salida.
+            </p>
+
+            <form id="ficha-salida" class="space-y-6">
+                <!-- Pregunta A: Sustentabilidad -->
+                <div>
+                    <label for="pregunta-a" class="block text-lg font-semibold mb-2">
+                        A) Explica con un ejemplo cómo la Biotecnología contribuye a la sustentabilidad del ambiente en Venezuela.
+                    </label>
+                    <textarea id="pregunta-a" rows="4" class="w-full p-3 rounded-lg text-gray-900 focus:ring-emerald-400 focus:border-emerald-400 border-gray-300" placeholder="Tu respuesta sobre la Biotecnología y la Sustentabilidad..."></textarea>
+                </div>
+
+                <!-- Pregunta B: Geopolítica -->
+                <div>
+                    <label for="pregunta-b" class="block text-lg font-semibold mb-2">
+                        B) ¿Por qué la Biotecnología es considerada una herramienta de geopolítica para un país?
+                    </label>
+                    <textarea id="pregunta-b" rows="4" class="w-full p-3 rounded-lg text-gray-900 focus:ring-emerald-400 focus:border-emerald-400 border-gray-300" placeholder="Tu respuesta sobre la Biotecnología y la Geopolítica..."></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-emerald-300 hover:bg-emerald-400 text-emerald-900 font-extrabold py-3 rounded-xl transition duration-300 text-xl shadow-md">
+                    ENTREGAR FICHA DE SALIDA
+                </button>
+            </form>
+
+            <div id="mensaje-entrega" class="mt-4 p-4 bg-emerald-100 text-emerald-900 rounded-lg font-bold text-center hidden">
+                ¡Ficha entregada con éxito!
+            </div>
+            <span class="text-sm text-white opacity-80 mt-4 block text-center">
+                — Evaluación Sumativa: Revisión de la aplicación de conceptos clave.
+            </span>
+        </section>
+
+    </main>
+
+    <!-- Script para Interactividad y Gráfico -->
+    <script>
+        // Función para mostrar/ocultar el concepto de Biotecnología Verde
+        function toggleConcept(id) {
+            const element = document.getElementById(`concepto-${id}`);
+            element.classList.toggle('hidden');
+        }
+
+        // Función para mostrar los argumentos del debate
+        function showArgument(type) {
+            const output = document.getElementById('debate-argumento');
+            let content = '';
+
+            if (type === 'pro') {
+                content = `
+                    <p class="font-bold text-green-700">Argumento PRO (Seguridad Alimentaria):</p>
+                    <p>La modificación genética permite obtener cepas resistentes a sequías o plagas, asegurando la cosecha y, por ende, la <strong>soberanía alimentaria</strong> del país ante el cambio climático. Es una medida de <strong>seguridad nacional</strong>.</p>
+                `;
+            } else if (type === 'contra') {
+                content = `
+                    <p class="font-bold text-red-700">Argumento CONTRA (Riesgo Ambiental/Socio-Económico):</p>
+                    <p>Existe el riesgo de <strong>contaminación genética</strong> a especies nativas (mega-diversidad), y crea una dependencia de las semillas patentadas por grandes corporaciones extranjeras, afectando a los pequeños agricultores venezolanos.</p>
+                `;
+            }
+
+            output.innerHTML = content;
+        }
+
+        // Manejo del formulario de Cierre
+        document.getElementById('ficha-salida').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const preguntaA = document.getElementById('pregunta-a').value.trim();
+            const preguntaB = document.getElementById('pregunta-b').value.trim();
+            const mensaje = document.getElementById('mensaje-entrega');
+
+            if (preguntaA && preguntaB) {
+                // Simulación de envío de datos
+                console.log("Respuesta A (Sustentabilidad):", preguntaA);
+                console.log("Respuesta B (Geopolítica):", preguntaB);
+
+                // Mostrar mensaje de éxito y resetear (simulación)
+                mensaje.classList.remove('hidden');
+                setTimeout(() => {
+                    mensaje.classList.add('hidden');
+                    document.getElementById('ficha-salida').reset();
+                }, 3000);
+
+            } else {
+                console.error('Por favor, completa ambas preguntas antes de entregar.');
+            }
+        });
+
+        // Inicialización del Gráfico de Torta
+        window.onload = function() {
+            const ctx = document.getElementById('barChartBiotecnologia');
+            if (ctx) {
+                new Chart(ctx, {
+                    // Cambiamos el tipo a 'pie' (torta)
+                    type: 'pie',
+                    data: {
+                        labels: [
+                            'Modificación Genética (Resistencia y rendimiento)',
+                            'Biofertilizantes y Biopesticidas (Sustentabilidad)',
+                            'Cultivo de Tejidos (Micropropagación de cultivos)',
+                            'Diagnósticos y Monitoreo (Marcadores de ADN)'
+                        ],
+                        datasets: [{
+                            label: 'Porcentaje de Aplicación (Hipotético)',
+                            data: [40, 30, 20, 10], // Porcentajes de uso (hipotéticos)
+                            backgroundColor: [
+                                '#10B981', // Emerald 500
+                                '#059669', // Emerald 600
+                                '#047857', // Emerald 700
+                                '#065F46'  // Emerald 800
+                            ],
+                            borderColor: '#fff', // Borde blanco para separar las secciones
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        // Mantenemos estas opciones para la estabilidad
+                        responsive: false, 
+                        maintainAspectRatio: false, 
+                        
+                        plugins: {
+                            legend: {
+                                // Mostramos la leyenda para identificar los colores
+                                display: true,
+                                position: 'right', // Colocamos la leyenda a la derecha
+                                labels: {
+                                    font: { size: 12 },
+                                    color: '#1f2937'
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    // Muestra la etiqueta completa como título del tooltip
+                                    title: function(context) {
+                                        return context[0].label;
+                                    },
+                                    // Calcula y muestra el porcentaje en el tooltip
+                                    label: function(context) {
+                                        let data = context.dataset.data;
+                                        let total = data.reduce((a, b) => a + b, 0);
+                                        let currentValue = context.raw;
+                                        let percentage = ((currentValue / total) * 100).toFixed(1);
+                                        return `${context.label}: ${percentage}%`;
+                                    }
+                                }
+                            }
+                        }
+                        // Las escalas (scales) se eliminan ya que no se usan en los gráficos de torta
+                    }
+                });
+            }
+        };
+    </script>
+</body>
+</html>
