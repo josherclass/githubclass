@@ -75,11 +75,11 @@ header p {
 
 /* Estilo específico para Clase 3 */
 .button-clase3 {
-    background-color: #E60039; /* Rojo */
+    background-color: #CC2951; /* Rojo */
 }
 
 .button-clase3:hover {
-    background-color: #BF113A;
+    background-color: #BD0B37;
     transform: translateY(-2px); /* Efecto al pasar el ratón */
 }
 
