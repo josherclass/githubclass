@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecosistemas Sustentables</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ======================================= */
+        /* VARIABLES DE COLOR */
+        /* ======================================= */
+        :root {
+            --color-primary: #003366;      /* Azul Oscuro / Navy */
+            --color-accent: #00A693;       /* Verde Esmeralda */
+            --color-background: #fcfcfc;   /* Gris Claro Cálido (Casi blanco) */
+            --color-secondary-bg: #EAF7F7; /* Fondo sutil para secciones */
+            --color-highlight: #FFC04D;    /* Naranja/Amarillo para acentos */
+            --color-text: #2c3e50;         /* Texto oscuro */
+        }
+        
+        /* ======================================= */
+        /* CSS BÁSICO */
+        /* ======================================= */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-background);
+            color: var(--color-text);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        header {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        h2 {
+            color: var(--color-accent);
+            border-bottom: 2px solid var(--color-accent);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: var(--color-primary);
+        }
+        
+        /* Estilo para el Concepto de Ecosistema (Inicialmente oculto) */
+        .concepto-box {
+            background-color: var(--color-secondary-bg);
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 5px solid var(--color-accent);
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            display: none; 
+        }
+
+        .concepto-box strong {
+            color: var(--color-primary);
+        }
+
+        .concepto-toggle {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .concepto-toggle h3 {
+            margin: 0 10px 0 0;
+        }
+
+        .concepto-icon {
+            cursor: pointer;
+            color: var(--color-accent);
+            font-size: 1.5em;
+            transition: color 0.2s;
+        }
+
+        .concepto-icon:hover {
+            color: var(--color-highlight);
+        }
+
+        /* ======================================= */
+        /* Estilos de las Fases */
+        /* ======================================= */
+
+        /* INICIO - Sondeo de Ideas */
+        .idea-sondeo {
+            background-color: #FFF8E1; /* Fondo amarillo muy claro */
+            padding: 20px;
+            border-left: 5px solid var(--color-highlight);
+            margin-bottom: 30px;
+        }
+
+        .idea-sondeo p {
+            font-style: italic;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        /* Principios Clave */
+        .principios-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .principio-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            transition: transform 0.3s;
+        }
+
+        .principio-card:hover {
+            transform: translateY(-5px);
+            cursor: pointer;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .principio-card i {
+            font-size: 2em;
+            color: var(--color-accent);
+            margin-bottom: 10px;
+        }
+
+        /* DESARROLLO - Ecosistemas en Foco (IMAGEN) */
+        .mapa-dinamico {
+            text-align: center;
+            margin-bottom: 30px;
+            border: none;
+            padding: 0;
+            background-color: transparent;
+        }
+
+        .mapa-dinamico img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Taller de Amenaza */
+        .fichas-grupo {
+            background-color: var(--color-secondary-bg);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .amenazas-lista {
+            margin: 15px 0 20px 20px;
+            padding: 0;
+            list-style-type: '👉 ';
+            columns: 2; /* Para listar mejor los ejemplos */
+        }
+
+        .amenazas-lista li {
+            margin-bottom: 5px;
+        }
+
+        .ficha-tabla th, .ficha-tabla td {
+            border: 1px solid #dcdcdc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .ficha-tabla {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .ficha-tabla textarea {
+            width: 95%;
+            min-height: 80px;
+            border: 1px solid #ccc;
+            padding: 5px;
+            resize: vertical;
+        }
+
+        /* CIERRE - Reflexión y Tarea */
+        .reflexion-cierre {
+            background-color: #E6F0FF; /* Azul suave para reflexión */
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 1px solid #cceeff;
+        }
+
+        .tarea-box {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px; /* Añadido para espacio después de la última sección */
+        }
+
+        .tarea-box a {
+            color: var(--color-highlight);
+            font-weight: bold;
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h2>🌐 <strong>ECOSISTEMAS SUSTENTABLES</strong>: DE LA TEORÍA A LA AMENAZA</h2>
+            <p><strong>Objetivo:</strong> Definir y comprender los principios, identificando amenazas en ecosistemas locales de <strong>Venezuela</strong>.</p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section id="inicio">
+            <h2>I. INICIO</h2>
+            
+            <div class="concepto-toggle">
+                <h3>Concepto Fundamental: Ecosistema</h3>
+                <i id="concepto-icon" class="fas fa-info-circle concepto-icon" title="Mostrar/Ocultar Concepto"></i>
+            </div>
+
+            <div id="concepto-box" class="concepto-box">
+                <p>Un <strong>Ecosistema</strong> es un sistema biológico complejo formado por una <strong>comunidad de organismos vivos</strong> (componentes bióticos, como plantas y animales) y el <strong>medio físico</strong> donde viven (componentes abióticos, como el suelo, el agua y el clima). Todos estos elementos interactúan como una unidad, intercambiando energía y materia.</p>
+            </div>
+            
+            <hr>
+            
+            <h3>1. Sondeo de Ideas y Conexión</h3>
+            <div class="idea-sondeo">
+                <p><i class="fas fa-lightbulb"></i> <strong>PREGUNTA DISPARADORA</strong>:</p>
+                <p>"Una vez definido Ecosistema, ¿qué significa que esté 'sano' o sea 'sustentable'? ¿Cómo se conecta con nuestra comunidad?"</p>
+            </div>
+
+            <h3>2. Introducción a los Principios Clave</h3>
+            <div class="principios-grid">
+                
+                <div class="principio-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h4>Equilibrio</h4>
+                    <p>La tasa de consumo no supera la tasa de <strong>regeneración natural</strong>.</p>
+                </div>
+
+                <div class="principio-card">
+                    <i class="fas fa-tree"></i>
+                    <h4>Biodiversidad</h4>
+                    <p>Variedad de vida que garantiza <strong>servicios ecosistémicos</strong>.</p>
+                </div>
+
+                <div class="principio-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Resiliencia</h4>
+                    <p>Capacidad de <strong>recuperarse de perturbaciones</strong> (sequías, contaminación, etc.).</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="desarrollo">
+            <h2>II. DESARROLLO</h2>
+
+            <h3>3. Ecosistemas Venezolanos en Foco (Análisis Local)</h3>
+            <div class="mapa-dinamico">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5rr86imN_4aAbEUeji_Sbbc6zVZyfzuwkKofM3BxQNlnQbcfVTfuSs2vJy3LV7G5wPctZPQ0fdpN1rAGsHQucktHxOoLtiN-jivoPN7Jpql4tRiSuNPvHxSwy-EHzpqV1HTBNJQ57JceQ/s1600/mapavegetacion.png" alt="Mapa de Ecosistemas de Venezuela" title="Mapa de Ecosistemas de Venezuela">
+				<img src="https://imgs.mongabay.com/wp-content/uploads/sites/25/2025/02/25234313/Screen-Shot-2025-02-25-at-6.40.07-PM.png" alt="Mapa de Ecosistemas de Venezuela" title="Mapa de Ecosistemas de Venezuela">
+                <p style="padding: 20px;">
+                    <strong>[Análisis Local]</strong> Utilice este mapa de ecosistemas como referencia visual para ubicar zonas como los <strong>Manglares</strong>, los <strong>Llanos</strong> o los <strong>Bosques Nublados</strong>, antes de pasar al trabajo grupal.
+                </p>
+            </div>
+
+            <h3>4. Taller de Anatomía de la Amenaza (Trabajo Grupal)</h3>
+            <div class="fichas-grupo">
+                <p><i class="fas fa-users"></i> Los estudiantes se dividen en grupos para analizar una amenaza específica de la lista:</p>
+                
+                <ul class="amenazas-lista">
+                    <li>Los palmares de <strong>Falcón</strong> y <strong>Yaracuy</strong></li>
+                    <li>Los manglares del <strong>Lago de Maracaibo</strong></li>
+                    <li><strong>Bosques secos</strong> de Lara, Anzoátegui, Bolívar y Falcón</li>
+                    <li><strong>Arco Minero</strong> (Amazonía)</li>
+                    <li><strong>Golfo Triste</strong> (El caribe)</li>
+                    <li><strong>Laguna de Unare</strong></li>
+                    <li><strong>Reserva Forestal de Capara</strong></li>
+                    <li><strong>Bosques Nublados y Andinos</strong></li>
+                </ul>
+
+                <table class="ficha-tabla">
+                    <thead>
+                        <tr>
+                            <th>TAREAS DEL GRUPO</th>
+                            <th>Respuesta del Grupo (Ejemplo Ficha Digital)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>A) Identificar 3 Amenazas Actuales:</strong></td>
+                            <td><textarea placeholder="Ej. Contaminación por hidrocarburos, Deforestación..."></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><strong>B) Identificar Causas:</strong></td>
+                            <td><textarea placeholder="Ej. Falta de inversión, tala ilegal..."></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><strong>C) Predecir Consecuencias a Largo Plazo:</strong></td>
+                            <td><textarea placeholder="Ej. Pérdida de fuentes de empleo, escasez de agua..."></textarea></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>5. Socialización Rápida (Máx. 2 min por grupo)</h3>
+            <p>Cada grupo presenta la amenaza que considera <strong>más crítica</strong>.</p>
+        </section>
+
+        <section id="cierre">
+            <h2>III. CIERRE</h2>
+
+            <h3>6. Reflexión Individual (Diario de Clase)</h3>
+            <div class="reflexion-cierre">
+                <p><i class="fas fa-brain"></i> <strong>PREGUNTA DE REFLEXIÓN</strong>:</p>
+                <p>"De las amenazas discutidas hoy, ¿cuál crees que se puede resolver con <strong>tecnología</strong> o una <strong>idea nueva</strong>?"</p>
+                <textarea style="width: 98%; min-height: 100px; margin-top: 10px;" placeholder="Escribe aquí tu reflexión individual..."></textarea>
+            </div>
+
+            <h3>📝 TAREA</h3>
+            <div class="tarea-box">
+                <p>Investigar un caso de <strong>innovación o emprendimiento venezolano</strong> que busque resolver un problema ambiental o ecosistémico (ej. reciclaje, biolab, purificación de agua, etc.).</p>
+                <a href="#">Comenzar mi investigación <i class="fas fa-search"></i></a>
+            </div>
+        </section>
+
+    </div>
+    
+    <script>
+        document.getElementById('concepto-icon').addEventListener('click', function() {
+            var box = document.getElementById('concepto-box');
+            if (box.style.display === 'none' || box.style.display === '') {
+                box.style.display = 'block';
+            } else {
+                box.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
