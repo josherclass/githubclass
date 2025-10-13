@@ -1,19 +1,18 @@
-/* Estilos Globales y de Escritorio (Desktop First) */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9; 
+    background-color: #f4f4f9; /* Fondo suave */
     color: #333;
     text-align: center;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; /* Distribuye el contenido */
 }
 
 header {
-    background-color: #333; 
+    background-color: #333; /* Color primario */
     color: white;
     padding: 40px 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -21,7 +20,7 @@ header {
 
 header h1 {
     margin-top: 0;
-    font-size: 2.5em; /* Tamaño grande en escritorio */
+    font-size: 2.5em;
 }
 
 header p {
@@ -31,12 +30,10 @@ header p {
 .button-container {
     padding: 60px 20px;
     display: flex;
-    justify-content: center;
-    gap: 30px; 
-    flex-grow: 1;
-    align-items: center;
-    /* Por defecto, los botones se muestran uno al lado del otro (row) en escritorio */
-    flex-direction: row; 
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 30px; /* Espacio entre los botones */
+    flex-grow: 1; /* Permite que el contenedor de botones crezca */
+    align-items: center; /* Centra los botones verticalmente */
 }
 
 /* Estilo base para los botones */
@@ -45,30 +42,30 @@ header p {
     padding: 15px 30px;
     font-size: 1.2em;
     font-weight: bold;
-    text-decoration: none;
+    text-decoration: none; /* Quita el subrayado del enlace */
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 8px; /* Bordes redondeados */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    min-width: 200px; /* Ancho mínimo para escritorio */
+    min-width: 200px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Estilo específico para Clase 1 */
 .button-clase1 {
-    background-color: #28a745;
+    background-color: #28a745; /* Verde */
 }
 
 .button-clase1:hover {
     background-color: #218838;
-    transform: translateY(-2px);
+    transform: translateY(-2px); /* Efecto al pasar el ratón */
 }
 
 /* Estilo específico para Clase 2 */
 .button-clase2 {
-    background-color: #ffc107; 
-    color: #333; 
+    background-color: #ffc107; /* Amarillo/Naranja */
+    color: #333; /* Texto oscuro para contraste */
 }
 
 .button-clase2:hover {
@@ -78,12 +75,12 @@ header p {
 
 /* Estilo específico para Clase 3 */
 .button-clase3 {
-    background-color: #C71D00; 
+    background-color: #E60039; /* Rojo */
 }
 
 .button-clase3:hover {
-    background-color: #C71D00;
-    transform: translateY(-2px);
+    background-color: #BF113A;
+    transform: translateY(-2px); /* Efecto al pasar el ratón */
 }
 
 footer {
@@ -91,39 +88,4 @@ footer {
     color: white;
     padding: 15px 20px;
     font-size: 0.9em;
-}
-
-
-/* ------------------------------------------------------------------ */
-/* MEDIA QUERY para Móviles (Pantallas de hasta 600px de ancho) */
-/* ------------------------------------------------------------------ */
-@media (max-width: 600px) {
-    
-    header {
-        padding: 30px 15px;
-    }
-
-    header h1 {
-        font-size: 1.8em; /* Reducir tamaño del título en móvil */
-    }
-
-    header p {
-        font-size: 1em;
-    }
-
-    .button-container {
-        /* CAMBIO CLAVE: Hace que los botones se apilen verticalmente */
-        flex-direction: column; 
-        gap: 20px; /* Espacio entre los botones apilados */
-        padding: 40px 15px;
-    }
-
-    .button {
-        /* Los botones ocupan todo el ancho del contenedor en móvil */
-        width: 100%; 
-        max-width: 300px; /* Limita el ancho para que no sean excesivamente grandes */
-        min-width: 0; /* Elimina el mínimo de escritorio */
-        padding: 18px 20px; /* Aumentar el padding vertical para facilitar el toque */
-        font-size: 1.1em;
-    }
 }
