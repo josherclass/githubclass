@@ -54,11 +54,11 @@ header p {
 
 /* Estilo específico para Clase 1 */
 .button-clase1 {
-    background-color: #052866; /* Azul */
+    background-color: #0E3B8C; /* Azul */
 }
 
 .button-clase1:hover {
-    background-color: #0E3B8C;
+    background-color: #052866;
     transform: translateY(-2px); /* Efecto al pasar el ratón */
 }
 
@@ -94,7 +94,7 @@ header p {
 }
 
 footer {
-    background-color: #313;
+    background-color: #333;
     color: white;
     padding: 15px 20px;
     font-size: 0.9em;
