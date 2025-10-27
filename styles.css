@@ -88,7 +88,7 @@ header p {
     background-color: #077361; /* Verde */
 }
 
-.button-clase3:hover {
+.button-clase4:hover {
     background-color: #004d40;
     transform: translateY(-2px); /* Efecto al pasar el ratón */
 }
