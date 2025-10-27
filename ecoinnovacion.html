@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Innovación</title>
+    
+    <style>
+        /* Estilos Generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Fondo más claro */
+            color: #333;
+            /* AJUSTE CLAVE: Aumentado el tamaño de fuente base a 17px */
+            font-size: 17px; 
+            line-height: 1.7; 
+        }
+
+        .header {
+            background-color: #004d40; /* VERDE OSCURO */
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            border-bottom: 5px solid #00251a; 
+        }
+
+        .header h1 {
+            margin: 0 0 5px 0;
+        }
+
+        .objetivo {
+            font-style: italic;
+            margin-bottom: 5px; 
+        }
+
+        /* Contenedor más ancho */
+        .container {
+            width: 95%; 
+            max-width: 1500px; 
+            margin: 30px auto;
+            padding: 25px; 
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        hr {
+            border: none;
+            border-top: 3px dashed #ccc;
+            margin: 30px 0;
+        }
+
+        /* Fases de la Sesión */
+        .fase {
+            padding: 20px;
+            margin-bottom: 30px;
+            border-left: 5px solid;
+            border-radius: 5px;
+        }
+
+        .inicio {
+            border-left-color: #1e88e5; /* Azul brillante para Introducción */
+        }
+
+        .desarrollo {
+            border-left-color: #fb8c00; /* Naranja/Ámbar para el Trabajo */
+        }
+
+        .cierre {
+            border-left-color: #e53935; /* Rojo para Conclusiones/Evaluación */
+        }
+
+        .fase h2 {
+            color: #004d40; /* Mismo verde oscuro del banner */
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .actividad, .fase-grupo {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            border: 1px solid #eee;
+        }
+
+        .actividad h3, .fase-grupo h3 {
+            color: #333;
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+
+        /* Elementos Interactivos */
+        button {
+            background-color: #388e3c; /* Nuevo verde para botones */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-top: 10px;
+            margin-right: 10px; /* Espacio entre botones */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2e7d32; /* Tono de hover más oscuro */
+        }
+
+        .recurso {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-left: 3px solid #ccc;
+        }
+        
+        /* Contenedor del concepto/acordeón */
+        .concepto-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+            cursor: pointer;
+            font-weight: bold;
+            color: #004d40;
+            margin-top: 5px;
+            border-bottom: 1px dashed #ccc;
+        }
+        
+        .concepto-content {
+            display: none; /* Inicia oculto */
+            padding: 10px 0;
+            font-size: 1em; 
+            color: #555;
+            border-top: none;
+        }
+        
+        .toggle-icon {
+            font-size: 1.2em;
+            margin-left: 10px;
+        }
+
+        /* Lista de ejemplos de ecoinnovación */
+        .ejemplos-list {
+            list-style-type: '🌱 '; /* Icono como marcador de lista */
+            padding-left: 20px;
+            margin-top: 10px;
+            font-size: 1em;
+        }
+        
+        /* Estilos para la tabla de comparación (Se beneficia del ancho) */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 1em;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        .comparison-table th {
+            background-color: #e0e0e0;
+            color: #333;
+            font-weight: bold;
+        }
+        .comparison-table .tradicional {
+            background-color: #ffe0b2; /* Naranja claro */
+        }
+        .comparison-table .innovadora {
+            background-color: #c8e6c9; /* Verde claro */
+        }
+
+
+        .material {
+            font-size: 1em;
+            color: #666;
+            margin: 5px 0 0 0;
+        }
+
+        /* Estilos Específicos para Fases Grupales */
+        .fase-grupo {
+            position: relative;
+            padding-right: 20px; 
+            min-height: 80px;
+        }
+
+        /* Display de Cronómetro para el Pitch */
+        .cronometro-display {
+            font-size: 3em;
+            font-weight: bold;
+            color: #d32f2f;
+            background-color: #ffeaea;
+            border: 3px solid #d32f2f;
+            padding: 10px 20px;
+            display: inline-block;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        /* Pie de Página */
+        .footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #263238; /* Tono gris pizarra oscuro */
+            color: white;
+            margin-top: 30px;
+        }
+        
+        /* Estilo para la nueva lista de puntos de desarrollo */
+        .design-points {
+            list-style: none; /* Remueve los marcadores predeterminados */
+            padding: 0;
+            margin-top: 15px;
+            margin-bottom: 25px;
+            border-left: 5px solid #004d40;
+            padding-left: 15px;
+            background-color: #e8f5e9; /* Fondo muy claro */
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-radius: 5px;
+        }
+        .design-points li {
+            padding: 5px 0;
+            font-weight: 500;
+        }
+    </style>
+    
+    <script>
+        function iniciarSesion() {
+            console.log('Sesión 2 iniciada. ¡A innovar!');
+        }
+
+        // FUNCIÓN ACTUALIZADA: Abre el video de YouTube en una nueva pestaña
+        function verVideo() {
+            window.open('https://www.youtube.com/watch?v=xJ-JzMJtNNk', '_blank');
+        }
+
+        // FUNCIÓN ACTUALIZADA: Abre el recurso de Design Thinking en una nueva pestaña
+        function abrirDesignThinking() {
+            window.open('https://cursoparaemprendedoresuned.intentalo.es/emprendimiento/design-thinking-emprendimiento/', '_blank');
+        }
+    </script>
+</head>
+<body onload="iniciarSesion()">
+
+    <header class="header">
+        <h1>Sesión 2: Eco-Innovación y Procesos de Diseño 💡</h1>
+        <p class="objetivo">Objetivo: Aplicar el proceso de innovación para generar soluciones creativas y sostenibles a desafíos ecosistémicos.</p>
+    </header>
+
+    <main class="container">
+        <section id="inicio" class="fase inicio">
+            <h2>I. INICIO</h2>
+            
+            <div class="actividad">
+                <h3>1. Introducción al Concepto de Eco-Innovación</h3>
+                
+                <div class="concepto-header" onclick="toggleConcepto()">
+                    <span>Definición Clave: ¿Qué es la Eco-Innovación?</span>
+                    <span id="toggleIcon" class="toggle-icon">➕</span>
+                </div>
+                <div id="ecoInnovacionConcepto" class="concepto-content">
+                    <p>La <strong>Eco-Innovación</strong> es cualquier forma de innovación que <strong>reduce el impacto ambiental</strong> y/o <strong>incrementa la resiliencia al estrés ambiental</strong>. Esto incluye nuevos productos, procesos, servicios o métodos que contribuyen al desarrollo sostenible al usar los recursos de manera más eficiente y menos contaminante, generando a la vez valor económico. Es la intersección entre la innovación, la sostenibilidad y la rentabilidad.</p>
+                </div>
+                <p>Presentación del proceso simplificado de innovación: <strong>Identificar > Idear > Prototipar > Evaluar</strong>. Énfasis en las <strong>3R</strong> (Reducir, Reutilizar, Reciclar).</p>
+                
+                <div class="recurso">
+                    <button onclick="verVideo()"><strong>Video</strong></button>
+                    <button onclick="abrirDesignThinking()"><strong>Design Thinking</strong></button>
+                    <p class="material">Material: Video introductorio y esquema del proceso de Diseño/Innovación.</p>
+                </div>
+            </div>
+
+            <div class="actividad">
+                <h3>2. Revisión de Tarea y Conexión</h3>
+                <p><strong>Pregunta Central:</strong> "¿Cuál fue el caso de innovación que encontraron y qué problema resuelve?"</p>
+                
+                <h4>Diferencia Clave: Solución Tradicional vs. Innovadora</h4>
+                <p>Para lograr la <strong>Eco-Innovación</strong>, es fundamental entender qué separa un simple arreglo de una solución disruptiva:</p>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Criterio</th>
+                            <th>Solución Tradicional (Reactiva)</th>
+                            <th>Solución Innovadora (Proactiva)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Foco Principal</strong></td>
+                            <td class="tradicional">Corrige o parchea un problema existente (Ej: Botar basura).</td>
+                            <td class="innovadora">Ataca la <strong>causa raíz</strong> del problema y crea nuevo valor.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Escalabilidad</strong></td>
+                            <td class="tradicional">Suele depender de un contexto o financiamiento limitado.</td>
+                            <td class="innovadora">Diseñada para ser replicada y crecer, generando un <strong>gran impacto</strong>.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sostenibilidad</strong></td>
+                            <td class="tradicional">Se centra en el corto plazo; a menudo crea nuevos problemas ambientales o sociales.</td>
+                            <td class="innovadora">Genera <strong>valor económico, social y ambiental</strong> a largo plazo (Triple Cuenta de Resultados).</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                
+                <div class="recurso">
+                    <h4>Ejemplos de Eco-Innovación:</h4>
+                    <ul class="ejemplos-list">
+                        <li><strong>Envases Biodegradables:</strong> Sustitución de plásticos por materiales a base de almidón de maíz o algas.</li>
+                        <li><strong>Fábricas de Cero Residuos:</strong> Sistemas de producción que integran los subproductos de un proceso como materia prima para otro.</li>
+                        <li><strong>Bioconstrucción con Materiales Locales:</strong> Uso de bambú, tierra compactada o micelio (hongos) como aislantes y estructuras.</li>
+                        <li><strong>Logística Inversa Inteligente:</strong> Sistemas optimizados para la recolección, reparación y reciclaje de productos post-consumo.</li>
+                        <li><strong>Tejidos a base de Residuos:</strong> Producción de ropa utilizando fibras de café, botellas de PET recicladas o cáscaras de naranja.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="desarrollo" class="fase desarrollo">
+            <h2>II. DESARROLLO - Design Challenge</h2>
+
+            <ul class="design-points">
+                <li>🌱 1. Huertos Urbanos y Compostaje Comunitario</li>
+                <li>🔋 2. Reciclaje Creativo y Economía Circular</li>
+                <li>☀️ 3. Energía Solar Comunitaria</li>
+                <li>🚲 4. Movilidad Sostenible</li>
+                <li>💧 5. Gestión Inteligente del Agua</li>
+                <li>🔄 6. Ecoemprendimientos Locales</li>
+                <li>🏫 7. Educación Ambiental Participativa</li>
+            </ul>
+            <div class="fase-grupo" data-tiempo="10">
+                <h3>Fase 1: Enfoque 🎯</h3>
+                <p>Definición del desafío: "Diseñar una solución innovadora para [Amenaza Elegida] en [Ecosistema/Comunidad]."</p>
+            </div>
+
+            <div class="fase-grupo" data-tiempo="15">
+                <h3>Fase 2: Ideación 🧠</h3>
+                <p>Lluvia de ideas (Mínimo 3) considerando: <strong>Tecnología</strong>, <strong>Biología</strong> (ej. microorganismos) y <strong>Comportamiento</strong> (ej. cambio social).</p>
+                <div class="recurso"><p class="material">Materiales: Hojas de reciclaje, Marcadores de colores.</p></div>
+            </div>
+
+            <div class="fase-grupo" data-tiempo="15">
+                <h3>Fase 3: Prototipado y Estructura 📝</h3>
+                <p>Crear el "Boceto de Solución" y estructurar la propuesta (<strong>Nombre del proyecto</strong>, <strong>Solución propuesta</strong>, <strong>Cómo es sostenible</strong>, <strong>Impacto esperado</strong>).</p>
+                <div class="recurso"><p class="material">Herramientas sugeridas: Canva, Figma o Dibujo a mano.</p></div>
+            </div>
+
+            <div class="fase-grupo" data-tiempo="15">
+                <h3>Fase 4: Modelo de Sustentabilidad 💰</h3>
+                <p>Diseñar cómo su solución podría ser autosustentable económica o socialmente. (Ej. ¿Quién lo financia? ¿Quién se beneficia?)</p>
+                <div class="recurso"><p class="material">Recurso: Lienzo simplificado de Modelo de Negocio.</p></div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="cierre" class="fase cierre">
+            <h2>III. CIERRE</h2>
+            <div class="actividad">
+                <h3>5. La Vitrina de la Innovación (Pitch Final) 🎤</h3>
+                <p>Cada grupo presenta su "Boceto de Solución" en un <strong>Pitch de máximo 3 minutos</strong>.</p>
+                <div class="recurso">
+                    <div id="cronometro-pitch" class="cronometro-display">3:00</div>
+                    <p class="material">Material: Cronómetro.</p>
+                </div>
+            </div>
+
+            <div class="actividad">
+                <h3>6. Conclusiones y Evaluación</h3>
+                <p>El docente concluye resaltando que la ciencia y la innovación son las herramientas más poderosas que tienen para enfrentar los desafíos ecosistémicos de su generación.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Eco-Innovación Interactiva</p>
+    </footer>
+
+</body>
+</html>
