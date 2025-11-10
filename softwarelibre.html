@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Libre</title>
+    
+    <style>
+        /* --- Base y Tipografía --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        header {
+            /* Azul marino */
+            background-color: #003366; 
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin-top: 0;
+            font-size: 2em;
+        }
+
+        .objetivo {
+            font-style: italic;
+            max-width: 800px;
+            margin: 10px auto;
+        }
+
+        main {
+            /* Ancho máximo del contenedor principal */
+            max-width: 1400px; 
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        /* --- Estilos de Secciones y Fases --- */
+        .fase {
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .fase h2 {
+            /* Color de títulos a azul marino */
+            color: #003366;
+            border-bottom: 2px solid #003366; 
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* --- Interactividad: Lluvia de Ideas (Simulación) --- */
+        .simulacion-interactividad {
+            padding: 20px;
+            background-color: #eaf3ff;
+            border: 1px dashed #007bff;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .simulacion-interactividad input[type="text"], .simulacion-interactividad button {
+            display: none;
+        }
+        
+        .nube-palabras {
+            margin-top: 15px;
+            padding: 10px 0;
+        }
+        .nube-palabras span {
+            display: inline-block;
+            padding: 5px 8px;
+            margin: 5px;
+            background: #cce5ff;
+            border-radius: 3px;
+            color: #004085;
+        }
+
+        /* --- Acordeón (CSS Puro) --- */
+        .acordeon {
+            margin-bottom: 15px;
+        }
+        .acordeon-input {
+            display: none; 
+        }
+
+        .acordeon-label {
+            display: block;
+            padding: 15px;
+            /* Fondo del label del acordeón a azul marino */
+            background-color: #003366; 
+            /* Texto del label a blanco para contraste */
+            color: white; 
+            cursor: pointer;
+            border-radius: 4px;
+            margin-bottom: 1px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .acordeon-label:hover {
+            /* Un tono ligeramente más claro al pasar el ratón */
+            background-color: #004488;
+        }
+        
+        /* Contenido del acordeón */
+        .acordeon-contenido {
+            max-height: 0;
+            overflow: hidden; 
+            padding: 0 15px;
+            /* Fondo del contenido del acordeón a azul claro */
+            background-color: #e6f7ff; 
+            border-radius: 0 0 4px 4px;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+            font-size: 0.95em;
+        }
+        
+        .acordeon-contenido ul {
+            padding-left: 20px;
+        }
+
+        .acordeon-input:checked ~ .acordeon-contenido {
+            max-height: 400px; 
+            padding: 15px;
+            overflow-y: auto; 
+        }
+
+        /* --- Comparativa y Libertades (Flexbox y Grid) --- */
+        .comparativa {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            margin-top: 20px; 
+        }
+
+        .tarjeta {
+            flex: 1;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .sl {
+            background-color: #d4edda; 
+            border-left: 5px solid #28a745;
+        }
+
+        .sp {
+            background-color: #f8d7da; 
+            border-left: 5px solid #dc3545;
+        }
+
+        .libertades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .libertad-card {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .libertad-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: #d6e9f9;
+        }
+
+        /* --- Estilos Adicionales --- */
+        .concepto-box {
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .concepto-box h4 {
+            /* Color de subtítulos h4 a azul marino */
+            margin-top: 0;
+            color: #003366;
+        }
+
+        /* Estilo para el Debate/Bloque Destacado */
+        .destacado {
+            /* Fondo del bloque destacado a azul claro */
+            background-color: #e0f7fa; /* Cian muy claro */
+            border-left: 4px solid #003366; /* Borde del mismo azul marino */
+            padding: 15px;
+            margin: 20px 0;
+            color: #003366; /* Texto para que combine con el borde */
+        }
+        
+        .destacado h4 {
+            color: #003366; /* Aseguramos que los títulos internos sean del mismo color */
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .destacado ul {
+            padding-left: 20px;
+        }
+
+        .tarea ul.ejemplos {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .tarea ul.ejemplos li {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 8px 15px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            /* Fondo del footer a azul marino */
+            background-color: #003366;
+            color: white;
+            margin-top: 30px;
+        }
+
+        /* --- Media Queries (Diseño Responsive) --- */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+            
+            .comparativa {
+                flex-direction: column; 
+            }
+
+            .tarjeta {
+                margin-bottom: 15px;
+            }
+
+            .libertades-grid {
+                grid-template-columns: 1fr; 
+            }
+
+            .simulacion-interactividad input[type="text"], .simulacion-interactividad button {
+                display: none; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Fundamentos del Software Libre y el Ecosistema Chromebook 💡</h1>
+        <p class="objetivo">
+            <strong>Objetivo Específico:</strong> Definir el Software Libre (SL), contrastarlo con el Software Propietario (SP) y analizar cómo el dispositivo Chromebook se relaciona con esta filosofía.
+        </p>
+    </header>
+
+    <main>
+        <section id="inicio" class="fase">
+            <h2>1. Exploración de Conceptos y Contextualización</h2>
+            <div class="interactivo">
+                <h3>Pregunta Generadora:</h3>
+                <p>"¿De quién es el software que usamos? ¿Podemos cambiarlo?" (Lluvia de ideas).</p>
+                <div class="simulacion-interactividad">
+                    <div class="nube-palabras">
+                        <span style="font-size: 20px;">Software</span>
+                        <span style="font-size: 16px;">Cambiar</span>
+                        <span style="font-size: 24px;">Propietario</span>
+                        <span style="font-size: 14px;">Gratis</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="concepto-box">
+                <h4>Contexto Inicial (Se desarrollará más adelante)</h4>
+                <p>El Chromebook y Chrome OS son presentados como un sistema operativo ligero, seguro y económico, muy utilizado en educación, que, aunque <strong>NO es Software Libre</strong>, tiene una base en el código abierto (Chromium OS).</p>
+            </div>
+        </section>
+
+        <section id="desarrollo" class="fase">
+            <h2>2. Filosofía y Libertades</h2>
+
+            <div class="concepto-box">
+                <h4>Definición: Software Libre (SL)</h4>
+                <p>El <strong>Software Libre</strong> (SL) es aquel que respeta la <strong>libertad de los usuarios</strong> sobre el producto adquirido y, por tanto, su código fuente está disponible. La palabra clave es <strong>"libre"</strong>, no necesariamente "gratís" (aunque muchos lo son). La libertad se garantiza por las cuatro libertades esenciales.</p>
+            </div>
+            <div class="concepto-box">
+                <h4>Definición: Software Propietario (SP)</h4>
+                <p>El <strong>Software Propietario</strong> (SP), o privativo, es aquel en el que los usuarios tienen limitado el uso, modificación o redistribución. El dueño del software retiene el <strong>control exclusivo</strong> del código fuente, y para usarlo se requiere un acuerdo de licencia restrictivo.</p>
+            </div>
+            <div class="comparativa">
+                <h3>Diferencia entre "Gratis" y "Libre"</h3>
+                <div class="tarjeta sl">
+                    <h4>Software Libre</h4>
+                    <ul>
+                        <li>Énfasis en la <strong>libertad</strong> del usuario.</li>
+                        <li>El código fuente está disponible.</li>
+                        <li>Relación con las 4 libertades.</li>
+                    </ul>
+                </div>
+                <div class="tarjeta sp">
+                    <h4>Software Propietario</h4>
+                    <ul>
+                        <li>Énfasis en la <strong>propiedad</strong> y el control.</li>
+                        <li>El código fuente es secreto.</li>
+                        <li>Restricciones de uso, estudio y modificación.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Las Cuatro Libertades del Software Libre</h3>
+            <div class="libertades-grid">
+                <div class="libertad-card">
+                    <h4>1. Usar</h4>
+                    <p>La libertad de <strong>ejecutar</strong> el programa como se desee, con cualquier propósito.</p>
+                </div>
+                <div class="libertad-card">
+                    <h4>2. Estudiar</h4>
+                    <p>La libertad de <strong>estudiar</strong> cómo funciona el programa (acceso al código fuente).</p>
+                </div>
+                <div class="libertad-card">
+                    <h4>3. Modificar</h4>
+                    <p>La libertad de <strong>modificar</strong> el programa para adaptarlo a las necesidades.</p>
+                </div>
+                <div class="libertad-card">
+                    <h4>4. Redistribuir</h4>
+                    <p>La libertad de <strong>distribuir</strong> copias, ayudando a la comunidad.</p>
+                </div>
+            </div>
+            
+            <div class="debate">
+                <h3>Debate Ético: Soberanía Tecnológica</h3>
+                <blockquote class="destacado">
+                    <p>El SL como herramienta de soberanía tecnológica y pensamiento crítico.</p>
+                    
+                    <h4>Ventajas del SL para la Soberanía:</h4>
+                    <ul>
+                        <li><strong>Control Local:</strong> Permite a gobiernos y empresas locales auditar, adaptar y mantener su propio software, reduciendo la dependencia de proveedores extranjeros.</li>
+                        <li><strong>Seguridad y Transparencia:</strong> El código abierto permite la verificación por parte de terceros, garantizando que no existan puertas traseras (backdoors) o fallas ocultas.</li>
+                        <li><strong>Fomento de la Industria Local:</strong> Impulsa la creación de empleo y el desarrollo de habilidades técnicas dentro del propio país o región.</li>
+                        <li><strong>Libertad de Formato:</strong> Promueve el uso de estándares abiertos (Open Standards), asegurando la interoperabilidad y la accesibilidad a largo plazo de los datos.</li>
+                    </ul>
+
+                    <h4>Desafíos del SL para la Soberanía:</h4>
+                    <ul>
+                        <li><strong>Curva de Aprendizaje:</strong> La migración de sistemas propietarios a soluciones SL requiere capacitación y tiempo.</li>
+                        <li><strong>Soporte Especializado:</strong> Aunque existe una comunidad, el soporte técnico a gran escala puede requerir la contratación de empresas especializadas o la formación interna.</li>
+                        <li><strong>Fragmentación:</strong> La variedad de opciones de SL puede llevar a la fragmentación y a decisiones difíciles sobre la adopción de estándares.</li>
+                        <li><strong>Inversión Inicial:</strong> Aunque el software es libre, la implementación, personalización y migración suelen requerir una inversión económica inicial considerable.</li>
+                    </ul>
+                    <p><strong>Ventaja educativa:</strong> ahorro de costes y adaptación curricular.</p>
+                </blockquote>
+            </div>
+
+            <h3>Caso de Estudio: El Ecosistema Chromebook y el Software Libre</h3>
+            
+            <div class="acordeon">
+                <input type="checkbox" id="info-chromium" class="acordeon-input">
+                <label for="info-chromium" class="acordeon-label">🔬 Explorando Chromium OS: La Base Abierta del Chromebook (Click para expandir)</label>
+                <div class="acordeon-contenido">
+                    <p><strong>Chromium OS</strong> es un proyecto de código abierto sobre el que se basa Google Chrome OS, diseñado para ser un sistema operativo rápido, sencillo y seguro centrado en la web. Es la versión de desarrollo de Chrome OS y está pensada para desarrolladores y para quienes desean experimentar con un sistema operativo ligero que se ejecuta en el navegador.</p>
+                    
+                    <h4>Características Clave</h4>
+                    <ul>
+                        <li><strong>Código abierto:</strong> Permite a los desarrolladores crear sus propias distribuciones.</li>
+                        <li><strong>Enfoque en la web:</strong> Diseñado para ejecutar aplicaciones web (WebApps).</li>
+                        <li><strong>Basado en Linux:</strong> Se apoya en el kernel de Linux.</li>
+                        <li><strong>Seguridad:</strong> Incluye arranque seguro y sandboxing.</li>
+                        <li><strong>Velocidad:</strong> Optimizado para arrancar rápidamente.</li>
+                    </ul>
+
+                    <h4>Diferencia con Chrome OS</h4>
+                    <p><strong>Chromium OS:</strong> Es el proyecto de código abierto. Versiones de terceros (no oficiales) disponibles.</p>
+                    <p><strong>Chrome OS:</strong> Es el sistema operativo <strong>comercial</strong> de Google (más pulido, optimizado y cerrado), preinstalado en dispositivos como los Chromebooks.</p>
+                </div>
+            </div>
+
+            <div class="acordeon">
+                <input type="checkbox" id="info-chromebook" class="acordeon-input">
+                <label for="info-chromebook" class="acordeon-label">Conclusión del Caso: ¿El Chromebook es libre? (Resumen)</label>
+                <div class="acordeon-contenido">
+                    <p>El Chromebook, aunque su sistema operativo final no es Software Libre, actúa como una plataforma <strong>versátil</strong> gracias a su naturaleza web-céntrica y su compatibilidad con aplicaciones Android. Esto le permite ejecutar eficientemente muchas aplicaciones de <strong>Software Libre</strong> basadas en la web (<strong>WebApps</strong>) o de Android, siendo una puerta de entrada al ecosistema SL.</p>
+                </div>
+            </div>
+            
+        </section>
+
+        <section id="cierre" class="fase">
+            <h2>3. Reflexión y Tarea</h2>
+            <div class="conclusiones">
+                <h3>Conclusión Dirigida</h3>
+                <p>El Chromebook es una plataforma <strong>versátil</strong> que sirve como un excelente anfitrión para el software libre, especialmente en entornos educativos.</p>
+            </div>
+
+            <div class="tarea">
+                <h3>Tarea: Investigación y Listado</h3>
+                <p>Investigar y listar <strong>3 aplicaciones educativas</strong> de Software Libre o de Código Abierto que puedan usarse en un navegador web o como App de Android.</p>
+                <ul class="ejemplos">
+                    <li>GeoGebra (Matemáticas)</li>
+                    <li>Photopea (Edición de Imagen)</li>
+                    <li>Moodle (Plataforma Educativa)</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Fundamentos del Software Libre</p>
+    </footer>
+
+</body>
+</html>
