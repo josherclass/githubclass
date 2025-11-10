@@ -93,6 +93,16 @@ header p {
     transform: translateY(-2px); /* Efecto al pasar el ratón */
 }
 
+/* Estilo específico para Clase 5 */
+.button-clase5 {
+    background-color: ##FF6D1F; /* Verde */
+}
+
+.button-clase5:hover {
+    background-color: ##FF5900;
+    transform: translateY(-2px); /* Efecto al pasar el ratón */
+}
+
 footer {
     background-color: #333;
     color: white;
