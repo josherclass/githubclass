@@ -95,11 +95,11 @@ header p {
 
 /* Estilo específico para Clase 5 */
 .button-clase5 {
-    background-color: ##FF6D1F; /* Verde */
+    background-color: #FF6D1F; /* Verde */
 }
 
 .button-clase5:hover {
-    background-color: ##FF5900;
+    background-color: #FF5900;
     transform: translateY(-2px); /* Efecto al pasar el ratón */
 }
 
