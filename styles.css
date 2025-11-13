@@ -65,7 +65,6 @@ header p {
 /* Estilo específico para Clase 2 */
 .button-clase2 {
     background-color: #391447; /* Moradillo */
-    color: #333; /* Texto oscuro para contraste */
 }
 
 .button-clase2:hover {
