@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tangram Creativo - Diseño Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Variables y Reset Básico (Modo Oscuro) --- */
+        :root {
+            --color-principal: #3498db; /* Azul vibrante (para botones/acento) */
+            --color-secundario: #ecf0f1; /* Blanco/Gris claro (para texto) */
+            --color-fondo: #2c3e50; /* Gris oscuro profundo (Fondo principal) */
+            --color-acento: #e74c3c; /* Rojo de acento (Se mantiene) */
+            --color-blanco: #ffffff;
+            /* Colores Tangram ajustados para contraste en fondo oscuro */
+            --color-tangram-1: #2ecc71; /* Verde */
+            --color-tangram-2: #f1c40f; /* Amarillo */
+            --color-tangram-3: #9b59b6; /* Púrpura */
+            --color-card-fondo: #34495e; /* Fondo de tarjetas más claro que el fondo principal */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            background-color: var(--color-fondo); /* Fondo Oscuro */
+            color: var(--color-secundario); /* Texto Claro */
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--color-principal);
+        }
+
+        /* --- Botón Pequeño de Aplicaciones --- */
+        .btn-small {
+            display: inline-block;
+            background: var(--color-principal);
+            color: var(--color-blanco) !important;
+            padding: 8px 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+            margin: 5px; 
+            font-size: 0.9em;
+            transition: background 0.3s;
+            font-weight: 600;
+        }
+
+        .btn-small:hover {
+            background: #2980b9; 
+        }
+        
+        .btn-tutorial {
+            background: var(--color-acento);
+        }
+
+        .btn-tutorial:hover {
+            background: #c0392b; 
+        }
+
+
+        /* --- Encabezado y Posicionamiento (CORREGIDO A LA IZQUIERDA) --- */
+        header {
+            background: var(--color-card-fondo);
+            color: var(--color-secundario);
+            padding: 15px 5%;
+            display: flex;
+            /* ALINEACIÓN A LA IZQUIERDA */
+            justify-content: flex-start; 
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.5em;
+            margin-left: 15px; 
+            font-weight: 700;
+        }
+
+        /* --- LOGO Tangram (Mejorado - CSS PURE) --- */
+        .tangram-logo {
+            position: relative;
+            width: 40px; 
+            height: 40px; 
+            transform: rotate(45deg);
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        
+        /* Efecto de rotación sutil al pasar el ratón */
+        .tangram-logo:hover {
+            transform: rotate(50deg) scale(1.05); 
+        }
+
+        .tangram-logo div {
+            position: absolute;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); 
+        }
+
+        /* Piezas del logo ajustadas al nuevo tamaño (40px) */
+        .tangram-logo .triangulo-izq {
+            width: 0; height: 0; border-style: solid; border-width: 20px 20px 0 0;
+            border-color: var(--color-principal) transparent transparent transparent; top: 0; left: 0;
+        }
+
+        .tangram-logo .cuadrado {
+            width: 14px; height: 14px; background-color: var(--color-tangram-2);
+            top: 13px; left: 13px; transform: rotate(45deg);
+        }
+
+        .tangram-logo .triangulo-der {
+            width: 0; height: 0; border-style: solid; border-width: 0 0 15px 15px;
+            border-color: transparent transparent var(--color-acento) transparent; bottom: 0; right: 0;
+        }
+
+
+        /* --- Sección Hero (Inicio) --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 5%;
+            min-height: 80vh;
+            background: linear-gradient(135deg, var(--color-fondo) 0%, #1f2a36 100%); 
+            gap: 30px;
+        }
+
+        .hero-content {
+            max-width: 500px;
+        }
+
+        .hero-content h2 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            color: var(--color-secundario); 
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.1em;
+            color: #bdc3c7; 
+            margin-bottom: 20px; 
+        }
+
+        .hero-image {
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* --- FIGURA GRANDE Tangram (Pájaro - CSS PURE) --- */
+        .tangram-figure {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            transform: scale(1.2) rotate(45deg);
+        }
+        .tangram-figure .t1, .tangram-figure .t2, .tangram-figure .t3, .tangram-figure .t4, .tangram-figure .t5, .tangram-figure .t6, .tangram-figure .t7 {
+            position: absolute;
+        }
+
+        .tangram-figure .t1 {
+            width: 0; height: 0; border-style: solid; border-width: 125px 0 0 125px;
+            border-color: var(--color-tangram-1) transparent transparent transparent; top: 0; left: 0; transform: rotate(0deg);
+        }
+        .tangram-figure .t2 {
+            width: 0; height: 0; border-style: solid; border-width: 0 125px 125px 0;
+            border-color: transparent var(--color-principal) transparent transparent; bottom: 0; right: 0; transform: rotate(0deg);
+        }
+        .tangram-figure .t3 {
+            width: 0; height: 0; border-style: solid; border-width: 0 0 88.38px 88.38px;
+            border-color: transparent transparent var(--color-acento) transparent; top: 0; right: 0; transform: translate(0, 0) rotate(-45deg);
+        }
+        .tangram-figure .t4 {
+            width: 62.5px; height: 62.5px; background-color: var(--color-tangram-2);
+            top: 18px; left: 100px; transform: rotate(45deg);
+        }
+        .tangram-figure .t5 {
+            width: 0; height: 0; border-style: solid; border-width: 0 31.25px 31.25px 0;
+            border-color: transparent var(--color-tangram-3) transparent transparent; top: 25px; left: 160px; transform: rotate(-45deg);
+        }
+        .tangram-figure .t6, .tangram-figure .t7 {
+            display: none; 
+        }
+
+
+        /* --- Sección Aplicaciones --- */
+        .seccion-servicios {
+            padding: 60px 5%;
+            text-align: center;
+            background-color: var(--color-card-fondo); 
+        }
+
+        .seccion-servicios h3 {
+            font-size: 2em;
+            margin-bottom: 40px;
+            color: var(--color-secundario);
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .servicio-card {
+            background: var(--color-fondo); 
+            color: var(--color-secundario);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .servicio-card h4 {
+            color: var(--color-principal);
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .servicio-card p {
+            color: #bdc3c7; 
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 20px 5%;
+            background: #1f2a36; 
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+
+        /* --- Media Queries (Responsividad) --- */
+        @media (max-width: 768px) {
+            header {
+                /* Vuelve a alinear a la izquierda, aunque en móvil el logo es la única pieza */
+                justify-content: flex-start; 
+            }
+            .hero {
+                flex-direction: column; text-align: center; padding: 50px 5%; min-height: auto;
+            }
+
+            .hero-content {
+                max-width: 100%; order: 2;
+            }
+
+            .hero-content h2 {
+                font-size: 2em;
+            }
+            
+            .hero-image {
+                width: 150px; height: 150px; order: 1; margin-bottom: 30px;
+            }
+            
+            .tangram-figure {
+                transform: scale(0.6) rotate(45deg); width: 250px; height: 250px;
+            }
+
+            .servicios-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="tangram-logo">
+                <div class="triangulo-izq"></div>
+                <div class="cuadrado"></div>
+                <div class="triangulo-der"></div>
+            </div>
+            <h1>Tangram Creativo</h1>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h2>Estrategias y herramientas para un diseño con piezas perfectas</h2>
+                <p>Convierte tus ideas complejas en soluciones digitales elegantes y funcionales, pieza por pieza.</p>
+            </div>
+            <div class="hero-image">
+                <div class="tangram-figure">
+                    <div class="t1"></div>
+                    <div class="t2"></div>
+                    <div class="t3"></div>
+                    <div class="t4"></div>
+                    <div class="t5"></div>
+                    <div class="t6"></div>
+                    <div class="t7"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios" class="seccion-servicios">
+            <h3>Aplicaciones</h3>
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <h4>Tinkercad</h4>
+                    <p>Herramienta online para el diseño 3D, simulación de circuitos electrónicos y programación de bloques.</p>
+                    
+                    <a href="https://www.youtube.com/watch?v=gZiV6QoboU4" target="_blank" class="btn-small btn-tutorial">Tutorial</a>
+                    
+                    <a href="https://www.tinkercad.com/" target="_blank" class="btn-small">Ir a Tinkercad</a>
+                </div>
+                <div class="servicio-card">
+                    <h4>Geogebra</h4>
+                    <p>Software interactivo para la enseñanza y aprendizaje de geometría, álgebra, cálculo y estadística.</p>
+                    
+                    <a href="https://drive.google.com/drive/folders/1Bf7-R9UKK3bCRGQcTID8E9lr6StxMF5Q?usp=drive_link" target="_blank" class="btn-small">Descarga</a>
+                    
+                    <a href="https://www.youtube.com/watch?v=OrUcqH42yRg&t=291s" target="_blank" class="btn-small btn-tutorial">Tutorial</a>
+                    
+                    <a href="https://www.geogebra.org/" target="_blank" class="btn-small">Ir a Geogebra</a>
+                </div>
+                <div class="servicio-card">
+                    <h4>Scratch</h4>
+                    <p>Lenguaje de programación visual por bloques ideal para introducir a niños y jóvenes a la lógica de la codificación.</p>
+                    
+                    <a href="https://www.youtube.com/watch?v=POtwDgmgAGM" target="_blank" class="btn-small btn-tutorial">Tutorial</a>
+                    
+                    <a href="https://scratch.mit.edu/" target="_blank" class="btn-small">Ir a Scratch</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Tangram Creativo. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
