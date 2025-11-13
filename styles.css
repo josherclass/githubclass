@@ -103,11 +103,11 @@ header p {
 }
 
 /* Estilo específico para Clase  */
-.button-clase5 {
+.button-clase6 {
     background-color: #52DC4C; /* Verdecillo */
 }
 
-.button-clase5:hover {
+.button-clase6:hover {
     background-color: #52DC4C;
     transform: translateY(-2px); /* Efecto al pasar el ratón */
 }
